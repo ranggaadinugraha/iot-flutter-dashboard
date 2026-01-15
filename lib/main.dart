@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// Import controllers
+// Controllers
 import 'controllers/login_controller.dart';
 import 'controllers/register_controller.dart';
 import 'controllers/dashboard_controller.dart';
 import 'controllers/data_controller.dart';
 
-// Import routes
+// Pages
+import 'pages/login_page.dart';
+
+// Routes
 import 'routes/app_routes.dart';
 
 void main() {
@@ -22,22 +25,38 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => LoginController()),
-        ChangeNotifierProvider(create: (_) => RegisterController()),
-        ChangeNotifierProvider(create: (_) => DashboardController()),
-        ChangeNotifierProvider(create: (_) => DataController()),
+        ChangeNotifierProvider<LoginController>(
+          create: (_) => LoginController(),
+        ),
+        ChangeNotifierProvider<RegisterController>(
+          create: (_) => RegisterController(),
+        ),
+        ChangeNotifierProvider<DashboardController>(
+          create: (_) => DashboardController(),
+        ),
+        ChangeNotifierProvider<DataController>(
+          create: (_) => DataController(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        title: 'IoT Flutter Dashboard',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: '/login',
+
+        // 🔥 PENTING UNTUK WEB (HINDARI initialRoute)
+        home: const LoginPage(),
+
+        // Routing tetap boleh dipakai
         routes: AppRoutes.getRoutes(),
-        onUnknownRoute: (settings) => MaterialPageRoute(
-          builder: (context) => const NotFoundPage(),
-        ),
+
+        onUnknownRoute: (settings) {
+          return MaterialPageRoute(
+            builder: (_) => const NotFoundPage(),
+          );
+        },
       ),
     );
   }
@@ -49,10 +68,10 @@ class NotFoundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Page Not Found')),
+      appBar: AppBar(title: const Text('404')),
       body: const Center(
         child: Text(
-          'Halaman tidak ditemukan!',
+          'Halaman tidak ditemukan',
           style: TextStyle(fontSize: 18),
         ),
       ),
