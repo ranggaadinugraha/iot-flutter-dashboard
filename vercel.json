@@ -1,6 +1,10 @@
 {
-  "buildCommand": "git clone https://github.com/flutter/flutter.git -b stable && export PATH=\"$PATH:`pwd`/flutter/bin\" && flutter config --enable-web && flutter pub get && flutter build web --release --web-renderer html",
-  "outputDirectory": "build/web",
+  "builds": [
+    {
+      "src": "build/web/**",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/index.html" }
