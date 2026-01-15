@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      decoration: TextDecoration.none, // 🔥 HILANGKAN GARIS
+                      decoration: TextDecoration.none, 
                     ),
                   ),
 

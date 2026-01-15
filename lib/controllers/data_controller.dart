@@ -23,7 +23,6 @@ class DataController extends ChangeNotifier {
         'systemMode': now.second % 2 == 0 ? 'Automatic' : 'Manual',
       });
 
-      // simpan maksimal 10 data terakhir
       if (sensorData.length > 10) {
         sensorData = sensorData.take(10).toList();
       }

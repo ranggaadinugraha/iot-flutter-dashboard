@@ -25,7 +25,6 @@ class DashboardController extends ChangeNotifier {
 
   void _startSimulation() {
     _timer = Timer.periodic(const Duration(seconds: 2), (_) {
-      // simulasi perubahan sensor
       _humidity = (_humidity + 1) % 100;
       _temperature = 25 + DateTime.now().second % 6;
 
@@ -71,7 +70,6 @@ class DashboardController extends ChangeNotifier {
   }
 
   Future<void> refreshData() async {
-    // simulasi refresh manual
     await Future.delayed(const Duration(milliseconds: 500));
     notifyListeners();
   }

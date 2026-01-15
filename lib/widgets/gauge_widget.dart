@@ -14,7 +14,6 @@ class GaugeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Membatasi nilai value antara 0 dan 100
     int clampedValue = value.clamp(0, 100);
 
     return Column(
@@ -36,7 +35,7 @@ class GaugeWidget extends StatelessWidget {
                   width: 150,
                   height: 150,
                   child: CircularProgressIndicator(
-                    value: clampedValue / 100, // Pastikan nilainya antara 0 dan 1
+                    value: clampedValue / 100, 
                     strokeWidth: 10,
                     backgroundColor: Colors.grey[800],
                     valueColor: AlwaysStoppedAnimation<Color>(color),
@@ -45,7 +44,7 @@ class GaugeWidget extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  "$clampedValue", // Menampilkan nilai yang sudah dibatasi
+                  "$clampedValue",
                   style: TextStyle(
                     color: color,
                     fontSize: 24,

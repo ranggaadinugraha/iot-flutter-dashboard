@@ -16,11 +16,9 @@ class AuthProvider extends ChangeNotifier {
 
     form.currentState?.save();
 
-    // ⏳ simulasi request backend
     await Future.delayed(const Duration(seconds: 1));
 
     if (isLogin) {
-      // LOGIN DEMO
       if (enteredEmail.isNotEmpty && enteredPassword.isNotEmpty) {
         isAuthenticated = true;
 
@@ -39,14 +37,14 @@ class AuthProvider extends ChangeNotifier {
         );
       }
     } else {
-      // REGISTER DEMO
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Registrasi berhasil (Demo Mode). Silakan login.'),
         ),
       );
 
-      isLogin = true; // kembali ke mode login
+      isLogin = true; 
     }
 
     notifyListeners();

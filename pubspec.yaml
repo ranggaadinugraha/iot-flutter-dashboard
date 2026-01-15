@@ -4,7 +4,7 @@ description: "Flutter IoT UI Demo (No Backend / No Firebase)"
 version: 1.0.1+2
 
 environment:
-  sdk: ">=3.6.0 <4.0.0"
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:

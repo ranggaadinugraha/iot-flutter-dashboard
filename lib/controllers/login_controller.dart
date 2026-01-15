@@ -18,10 +18,8 @@ class LoginController extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
 
-    // ⏳ Simulasi request backend
     await Future.delayed(const Duration(seconds: 1));
 
-    // ✅ DEMO LOGIN (tanpa backend / firebase)
     if (enteredEmail.isNotEmpty && enteredPassword.isNotEmpty) {
       isLoggedIn = true;
 
@@ -32,7 +30,6 @@ class LoginController extends ChangeNotifier {
         ),
       );
 
-      // 🔥 WAJIB KE /home (BottomNavBarPage)
       Navigator.pushReplacementNamed(context, '/home');
     } else {
       isLoggedIn = false;

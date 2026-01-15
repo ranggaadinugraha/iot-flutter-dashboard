@@ -15,10 +15,8 @@ class RegisterController extends ChangeNotifier {
       isLoading = true;
       notifyListeners();
 
-      // ⏳ simulasi loading (seperti request backend)
       await Future.delayed(const Duration(seconds: 1));
 
-      // ✅ simulasi registrasi berhasil
       isRegistered = true;
       isLoading = false;
       notifyListeners();
@@ -29,7 +27,6 @@ class RegisterController extends ChangeNotifier {
         ),
       );
 
-      // 👉 setelah register, bisa langsung kembali ke login
       Navigator.pop(context);
     }
   }

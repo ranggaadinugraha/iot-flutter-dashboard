@@ -13,7 +13,6 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[900],
 
-      // ❌ APPBAR DIHILANGKAN TOTAL
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
