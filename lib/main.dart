@@ -39,13 +39,10 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
 
-        // 🔥 WAJIB UNTUK WEB
         home: const LoginPage(),
 
-        // Named routes
         routes: AppRoutes.getRoutes(),
 
-        // 404 handler
         onUnknownRoute: (settings) {
           return MaterialPageRoute(
             builder: (_) => const NotFoundPage(),
