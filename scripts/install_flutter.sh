@@ -9,6 +9,9 @@ curl -L https://storage.googleapis.com/flutter_infra_release/releases/stable/lin
 
 tar xf flutter.tar.xz
 
+# 👉 FIX: allow flutter git repo to run as root (CI environment)
+git config --global --add safe.directory /vercel/path0/flutter
+
 export PATH="$PATH:$(pwd)/flutter/bin"
 
 flutter --version
