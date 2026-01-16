@@ -25,33 +25,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<LoginController>(
-          create: (_) => LoginController(),
-        ),
-        ChangeNotifierProvider<RegisterController>(
-          create: (_) => RegisterController(),
-        ),
-        ChangeNotifierProvider<DashboardController>(
-          create: (_) => DashboardController(),
-        ),
-        ChangeNotifierProvider<DataController>(
-          create: (_) => DataController(),
-        ),
+        ChangeNotifierProvider(create: (_) => LoginController()),
+        ChangeNotifierProvider(create: (_) => RegisterController()),
+        ChangeNotifierProvider(create: (_) => DashboardController()),
+        ChangeNotifierProvider(create: (_) => DataController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'IoT Flutter Dashboard',
+
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
         ),
 
-        // 🔥 PENTING UNTUK WEB (HINDARI initialRoute)
+        // 🔥 WAJIB UNTUK WEB
         home: const LoginPage(),
 
-        // Routing tetap boleh dipakai
+        // Named routes
         routes: AppRoutes.getRoutes(),
 
+        // 404 handler
         onUnknownRoute: (settings) {
           return MaterialPageRoute(
             builder: (_) => const NotFoundPage(),
@@ -68,7 +62,9 @@ class NotFoundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('404')),
+      appBar: AppBar(
+        title: const Text('404'),
+      ),
       body: const Center(
         child: Text(
           'Halaman tidak ditemukan',

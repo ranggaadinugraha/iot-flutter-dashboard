@@ -1,6 +1,5 @@
 name: app_iot
 description: "Flutter IoT UI Demo (No Backend / No Firebase)"
-
 version: 1.0.1+2
 
 environment:
@@ -10,20 +9,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Penyimpanan data lokal (opsional, aman untuk demo)
   shared_preferences: ^2.0.15
-
-  # Ikon Cupertino (iOS style)
   cupertino_icons: ^1.0.8
-
-  # State management
   provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # Linting
   flutter_lints: ^5.0.0
 
 flutter:
